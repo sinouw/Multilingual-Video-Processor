@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  multilingual-video-processor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
+      - GOOGLE_TRANSLATE_API_KEY=${GOOGLE_TRANSLATE_API_KEY}
+      - GCS_BUCKET_OUTPUT=${GCS_BUCKET_OUTPUT}
+      - LOG_LEVEL=debug
+    volumes:
+      # Mount service account credentials (create this file from your GCP service account)
+      - ./credentials.json:/app/credentials.json:ro
+    # Uncomment and configure if needed
+    # depends_on:
+    #   - redis  # For job status storage in production

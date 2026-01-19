@@ -1,0 +1,51 @@
+# This file specifies files that are *not* uploaded to Google Cloud
+# using gcloud. It follows the same syntax as .gitignore
+
+# Git files
+.git/
+.gitignore
+.gitattributes
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Documentation (optional - include if you want to deploy docs)
+docs/
+*.md
+!README.md
+
+# Tests
+test/
+*_test.go
+
+# Examples
+examples/
+
+# CI/CD
+.github/
+
+# Docker files (not needed in function deployment)
+Dockerfile
+docker-compose.yml
+
+# Environment files
+.env
+.env.example
+.env.local
+
+# Build artifacts
+dist/
+build/
+bin/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
